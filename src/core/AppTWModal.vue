@@ -1,0 +1,103 @@
+<template>
+  <teleport to="body">
+    <div class="app-modal tw-mx-1 tw-h-1/2 tw-w-fit md:tw-h-2/3" v-if="modelValue">
+      <slot />
+    </div>
+    <div v-if="modelValue" @click="$emit('update:modelValue')" class="overlay"></div>
+
+<div class="tw-relative tw-z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <!--
+    Background backdrop, show/hide based on modal state.
+
+    Entering: "ease-out duration-300"
+      From: "opacity-0"
+      To: "opacity-100"
+    Leaving: "ease-in duration-200"
+      From: "opacity-100"
+      To: "opacity-0"
+  -->
+  <div class="tw-fixed tw-inset-0 tw-bg-gray-500 tw-bg-opacity-75 tw-transition-opacity"></div>
+
+  <div class="tw-fixed tw-inset-0 tw-z-10 tw-overflow-y-auto">
+    <div class="tw-flex tw-min-h-full tw-items-center tw-justify-center tw-p-4 tw-text-center sm:tw-items-center sm:tw-p-0">
+      <!--
+        Modal panel, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          To: "opacity-100 translate-y-0 sm:scale-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100 translate-y-0 sm:scale-100"
+          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      -->
+      <div class="tw-relative tw-transform tw-overflow-hidden tw-rounded-lg tw-bg-white tw-text-left tw-shadow-xl tw-transition-all sm:tw-my-8 sm:tw-w-full sm:tw-max-w-lg">
+        <div class="tw-bg-white tw-px-4 tw-pb-4 tw-pt-5 sm:tw-p-6 sm:tw-pb-4">
+          <div class="sm:tw-flex sm:tw-items-start">
+            <div class="tw-mx-auto tw-flex tw-h-12 tw-w-12 tw-flex-shrink-0 tw-items-center tw-justify-center tw-rounded-full tw-bg-red-100 sm:tw-mx-0 sm:tw-h-10 sm:tw-w-10">
+              <svg class="tw-h-6 tw-w-6 tw-text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+              </svg>
+            </div>
+            <div class="tw-mt-3 tw-text-center sm:tw-ml-4 sm:tw-mt-0 sm:tw-text-left">
+              <h3 class="tw-text-base tw-font-semibold tw-leading-6 tw-text-gray-900" id="modal-title">Deactivate account</h3>
+              <div class="tw-mt-2">
+                <p class="tw-text-sm tw-text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tw-bg-gray-50 tw-px-4 tw-py-3 sm:tw-flex sm:tw-flex-row-reverse sm:tw-px-6">
+          <button type="button" class="tw-inline-flex tw-w-full tw-justify-center tw-rounded-md tw-bg-red-600 tw-px-3 tw-py-2 tw-text-sm tw-font-semibold tw-text-white tw-shadow-sm hover:tw-bg-red-500 sm:tw-ml-3 sm:tw-w-auto">Deactivate</button>
+          <button type="button" class="tw-mt-3 tw-inline-flex tw-w-full tw-justify-center tw-rounded-md tw-bg-white tw-px-3 tw-py-2 tw-text-sm tw-font-semibold tw-text-gray-900 tw-shadow-sm tw-ring-1 tw-ring-inset tw-ring-gray-300 hover:tw-bg-gray-50 sm:tw-mt-0 sm:tw-w-auto">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </teleport>
+</template>
+
+<script>
+export default {
+  props: {
+    modelValue: {
+      default: false,
+      type: Boolean,
+    },
+  },
+  emits: ['update:modelValue'],
+  watch: {
+    modelValue(val) {
+      if(val) document.body.style.overflow = 'hidden';
+      else document.body.style.overflow = '';
+    }
+  }
+};
+</script>
+
+<style scoped>
+.app-modal {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  /* width: 100%;
+  max-width: 650px;
+  max-height: 440px; */
+  padding: 20px;
+  background: white;
+  z-index: 999;
+  @apply tw-rounded;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 50%);
+  top: 0;
+  left: 0;
+  z-index: 998;
+}
+</style>

@@ -1,0 +1,35 @@
+{
+  "name": "gaz-form",
+  "version": "0.1.1",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.7",
+    "@vee-validate/i18n": "^4.5.10",
+    "@vee-validate/rules": "^4.5.10",
+    "@vuepic/vue-datepicker": "^6.1.0",
+    "bootstrap": "^5.2.3",
+    "core-js": "^3.6.5",
+    "deep-cleaner": "^1.2.1",
+    "flat": "^5.0.2",
+    "maska": "^1.5.0",
+    "object-to-formdata": "^4.4.2",
+    "vee-validate": "^4.5.10",
+    "vue": "^3.0.0",
+    "vue-the-mask": "^0.11.1",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@vue/cli-plugin-babel": "~5.0.1",
+    "@vue/cli-plugin-vuex": "~5.0.1",
+    "@vue/cli-service": "~5.0.1",
+    "@vue/compiler-sfc": "^3.0.0",
+    "tailwindcss": "^3.0.23"
+  },
+  "_id": "gaz-form@0.1.1",
+  "readme": "ERROR: No README data found!"
+}
