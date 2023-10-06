@@ -7,7 +7,7 @@
         <AppSelect
             name="type"
             rules="required"
-            label="Тип заявки"
+            label="Тип заявления"
             :options="typeOptions"
             @selectFromSelect="GetTypeSelected"
         />
@@ -96,8 +96,8 @@
         </template>
         <template v-if="currentType === 9">
           <AppInput type="number" name="debt_amount" rules="required" label="Размер задолженности на текущую дату (рублей)"/>
-          <AppDatePicker class="sm:tw-col-span-3" name="amortization_date" rules="required" label="Дата погашения долга" />
-          <AppDatePicker class="sm:tw-col-span-3" name="payment_date" rules="required" label="Дата оплаты стоимости услуг по ограничению и возобновлению поставки газа" />
+          <AppDatePicker class="tw-col-span-3" name="amortization_date" rules="required" label="Дата погашения долга" />
+          <AppDatePicker class="tw-col-span-3" name="payment_date" rules="required" label="Дата оплаты стоимости услуг по ограничению и возобновлению поставки газа" />
           <AppDateInterval
               label="Период подключения к газопроводу"
               name="connection"

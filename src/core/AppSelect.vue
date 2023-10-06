@@ -2,7 +2,7 @@
   <div class="sm:tw-col-span-3">
     <AppLabel v-bind="{ label }" :for="name" :required="hasRequiredRule" />
     <div class="tw-mt-1">
-      <select v-bind="$attrs" :id="name" class="tw-block tw-w-full tw-rounded-md tw-border-0 tw-bg-white tw-py-1.5 tw-text-gray-900 tw-shadow-sm tw-ring-1 tw-ring-inset tw-ring-gray-300 focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-gazblue" @change="onChange">
+      <select v-bind="$attrs" :id="name" class="tw-block tw-w-full tw-rounded-md tw-border-0 tw-bg-white tw-py-1.5 tw-text-gray-900 tw-shadow-sm sm:tw-text-sm tw-ring-1 tw-ring-inset tw-ring-gray-300 focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-gazblue" @change="onChange">
         <option :selected="currentVal === ''" :disabled="cantEmpty" value="">Выберите из списка</option>
         <option
           v-for="(option, i) in options"

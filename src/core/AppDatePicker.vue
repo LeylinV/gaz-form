@@ -49,7 +49,7 @@ export default {
     return () => {
       const input = h('input', {
         id: props.name,
-        class: 'app-input',
+        class: 'app-input sm:tw-text-sm',
         type: 'date',
         onInput,
         value: dispalyVal.value,
